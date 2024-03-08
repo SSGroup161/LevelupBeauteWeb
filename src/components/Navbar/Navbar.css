@@ -1,0 +1,56 @@
+.link-underline {
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.link-underline::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #916d4f;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.link-underline:hover::after {
+    visibility: visible;
+    width: 100%;
+}
+
+.link-underline.active::after {
+    visibility: visible;
+    width: 100%;
+}
+
+.navbar-logo {
+    transition: all 0.3s ease;
+}
+
+.navbar-logo .absolute span {
+    transition: transform 0.3s ease;
+}
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.navbar-container {
+    transition: all 0.3s ease;
+}
+
+.dropdown-container {
+    transition: max-height 0.7s ease, opacity 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    border-radius: 9999px;
+}
+
+.dropdown-container.open {
+    max-height: 300px;
+    opacity: 1;
+    border-radius: 20px;
+}

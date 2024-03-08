@@ -1,0 +1,131 @@
+.home-container {
+    background: radial-gradient(50% 50% at 50% 50%, #ffffff 0%, #c8ba9f 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 96; /* atau lg:h-screen, sesuai kebutuhan */
+    background-color: slate-200;
+}
+
+.home-two-container {
+    background: linear-gradient(180deg, #c8ba9f 22.41%, #f5edea 91.09%);
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-img {
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.floating-img-satu {
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.floating-img-dua {
+    animation: floatAnimation 5s ease-in-out infinite;
+}
+
+.floating-img-tiga {
+    animation: floatAnimation 6s ease-in-out infinite;
+}
+
+.text-description {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.floating-img:hover .text-description {
+    opacity: 1;
+}
+
+.floating-img-satu:hover .text-description {
+    opacity: 1;
+}
+
+.floating-img-dua:hover .text-description {
+    opacity: 1;
+}
+
+.floating-img-tiga:hover .text-description {
+    opacity: 1;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.5;
+    }
+}
+
+.scrollDownBounce {
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.scrollDownBounce:hover {
+    animation-play-state: paused;
+    opacity: 1 !important;
+}
+
+.parentSVG {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* overflow: hidden; */
+}
+
+.transition-image {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.image-container:hover .transition-image {
+    transform: scale(1.05);
+}
+
+@keyframes initialAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.image-container {
+    animation: initialAnimation 1s ease-out;
+}
+
+@media (max-width: 768px) {
+    .transition-image {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 480px) {
+    .transition-image {
+        max-width: 300px;
+    }
+}

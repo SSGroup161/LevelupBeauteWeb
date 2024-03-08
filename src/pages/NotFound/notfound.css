@@ -1,0 +1,27 @@
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-image {
+    animation: floatAnimation 3s ease-in-out infinite;
+}
+
+.floating-image-satu {
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.floating-image-dua {
+    animation: floatAnimation 5s ease-in-out infinite;
+}
+
+.floating-image-tiga {
+    animation: floatAnimation 6s ease-in-out infinite;
+}
