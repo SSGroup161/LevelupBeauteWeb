@@ -11,6 +11,7 @@ export default {
                 roboto: ["Roboto", "sans-serif"],
                 aref: ["Aref Ruqaa Ink", "sans-serif"],
                 playfair: ["Playfair Display", "sans-serif"],
+                fredoka: ["Fredoka", "sans-serif"],
             },
         },
     },

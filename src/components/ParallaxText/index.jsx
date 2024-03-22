@@ -52,9 +52,9 @@ function TextParallax({ children, baseVelocity = 100 }) {
     );
 }
 
-export default function ParallaxText() {
+export default function ParallaxText({ bgColor }) {
     return (
-        <section className="bg-[#F5EDEA] text-[#D6C8AE]">
+        <section className={`bg-[#${bgColor}] text-[#D6C8AE]`}>
             <TextParallax baseVelocity={-2}>
                 level up! level up! level up!
             </TextParallax>

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import About from "../pages/About";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,6 +17,7 @@ const App = () => {
             <Routes>
                 <Route path="*" element={<NotFound />} />
                 <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
             </Routes>
         </Router>
     );

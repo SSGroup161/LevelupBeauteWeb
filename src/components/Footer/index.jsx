@@ -1,10 +1,8 @@
 import React from "react";
-import ParallaxText from "../../components/ParallaxText";
 
 const Footer = () => {
     return (
         <div className="">
-            <ParallaxText />
             <div className="w-full bg-[#D6C8AE] h-auto lg:h-96 relative lg:py-16 lg:px-20 md:py-8 md:px-10 py-6 px-6 overflow-hidden bg-[url('/PatternFooter.svg')] bg-repeat bg-cover md:bg-contain flex flex-col justify-between">
                 <div className="flex md:gap-6 flex-col lg:flex-row">
                     <div className="flex flex-col gap-4">

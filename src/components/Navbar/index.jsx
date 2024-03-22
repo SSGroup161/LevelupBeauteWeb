@@ -1,11 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
-    const [activeLink, setActiveLink] = useState("");
+    const navbarRef = useRef();
+    const navigate = useNavigate();
+    const location = useLocation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
-    const navbarRef = useRef();
+    const [activeHome, setActiveHome] = useState(true);
+    const [activeAbout, setActiveAbout] = useState(false);
+    const [activeProduct, setActiveProduct] = useState(false);
+    const [activeNews, setActiveNews] = useState(false);
+    const [activeBestDeals, setActiveBestDeals] = useState(false);
+    const [activePromo, setActivePromo] = useState(false);
 
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
@@ -17,6 +25,55 @@ const Navbar = () => {
     };
 
     useEffect(() => {
+        if (location.pathname === "/") {
+            setActiveHome(true);
+            setActiveAbout(false);
+            setActiveProduct(false);
+            setActiveNews(false);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        } else if (location.pathname === "/about") {
+            setActiveHome(false);
+            setActiveAbout(true);
+            setActiveProduct(false);
+            setActiveNews(false);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        } else if (location.pathname === "/product") {
+            setActiveHome(false);
+            setActiveAbout(false);
+            setActiveProduct(true);
+            setActiveNews(false);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        } else if (
+            location.pathname === "/news" ||
+            location.pathname.startsWith("/news/detail/")
+        ) {
+            setActiveHome(false);
+            setActiveAbout(false);
+            setActiveProduct(false);
+            setActiveNews(true);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        } else if (location.pathname === "/best-deals") {
+            setActiveHome(false);
+            setActiveAbout(false);
+            setActiveProduct(true);
+            setActiveNews(false);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        } else if (location.pathname === "/promo") {
+            setActiveHome(false);
+            setActiveAbout(false);
+            setActiveProduct(false);
+            setActiveNews(false);
+            setActiveBestDeals(false);
+            setActivePromo(false);
+        }
+    }, []);
+
+    useEffect(() => {
         window.addEventListener("scroll", handleScroll);
 
         return () => {
@@ -24,9 +81,6 @@ const Navbar = () => {
         };
     }, []);
 
-    const handleSetActiveLink = (link) => {
-        setActiveLink(link);
-    };
     return (
         <>
             <div className="w-full h-28 fixed top-0 z-50" ref={navbarRef}>
@@ -39,64 +93,55 @@ const Navbar = () => {
                         }`}
                     >
                         <div className="md:flex items-center justify-center lg:gap-14 md:gap-7 hidden">
-                            <a
-                                href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "bestDeals" ? "active" : ""
+                            <p
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
+                                    activeBestDeals ? "active" : ""
                                 }`}
-                                onClick={() => handleSetActiveLink("bestDeals")}
+                                onClick={() => navigate("/beast-deals")}
                             >
                                 Best Deals
-                            </a>
-                            <a
-                                href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "getPromo" ? "active" : ""
+                            </p>
+                            <p
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
+                                    activePromo ? "active" : ""
                                 }`}
-                                onClick={() => handleSetActiveLink("getPromo")}
+                                onClick={() => navigate("/promo")}
                             >
                                 Get Promo
-                            </a>
-                            <a
-                                href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "ourProduct" ? "active" : ""
+                            </p>
+                            <p
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
+                                    activeProduct ? "active" : ""
                                 }`}
-                                onClick={() =>
-                                    handleSetActiveLink("ourProduct")
-                                }
+                                onClick={() => navigate("/product")}
                             >
                                 Our Product
-                            </a>
+                            </p>
                         </div>
                         <div className="md:flex items-center justify-center lg:gap-14 md:gap-7 hidden">
-                            <a
-                                href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "aboutUs" ? "active" : ""
+                            <p
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
+                                    activeAbout ? "active" : ""
                                 }`}
-                                onClick={() => handleSetActiveLink("aboutUs")}
+                                onClick={() => navigate("/about")}
                             >
                                 About US
-                            </a>
-                            <a
-                                href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "newsEvent" ? "active" : ""
+                            </p>
+                            <p
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
+                                    activeNews ? "active" : ""
                                 }`}
-                                onClick={() => handleSetActiveLink("newsEvent")}
+                                onClick={() => navigate("/news")}
                             >
                                 News & Event
-                            </a>
-                            <a
+                            </p>
+                            <p
                                 href="#"
-                                className={`link-underline font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
-                                    activeLink === "login" ? "active" : ""
-                                }`}
-                                onClick={() => handleSetActiveLink("login")}
+                                className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1`}
+                                onClick={() => navigate("/login")}
                             >
                                 Login here
-                            </a>
+                            </p>
                         </div>
                     </div>
                     <div
@@ -110,86 +155,54 @@ const Navbar = () => {
                         >
                             <div className="flex flex-row justify-between items-center px-4">
                                 <div className="flex flex-col">
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "bestDeals"
-                                                ? "active"
-                                                : ""
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
+                                            activeBestDeals ? "active" : ""
                                         }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("bestDeals")
-                                        }
+                                        onClick={() => navigate("/best-deals")}
                                     >
                                         Best Deals
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "getPromo"
-                                                ? "active"
-                                                : ""
+                                    </p>
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
+                                            activePromo ? "active" : ""
                                         }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("getPromo")
-                                        }
+                                        onClick={() => navigate("/promo")}
                                     >
                                         Get Promo
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "ourProduct"
-                                                ? "active"
-                                                : ""
+                                    </p>
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
+                                            activeProduct ? "active" : ""
                                         }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("ourProduct")
-                                        }
+                                        onClick={() => navigate("/product")}
                                     >
                                         Our Product
-                                    </a>
+                                    </p>
                                 </div>
                                 <div className="flex flex-col">
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "aboutUs"
-                                                ? "active"
-                                                : ""
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
+                                            activeAbout ? "active" : ""
                                         }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("aboutUs")
-                                        }
+                                        onClick={() => navigate("/about")}
                                     >
                                         About US
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "newsEvent"
-                                                ? "active"
-                                                : ""
+                                    </p>
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
+                                            activeNews ? "active" : ""
                                         }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("newsEvent")
-                                        }
+                                        onClick={() => navigate("/news")}
                                     >
                                         News & Event
-                                    </a>
-                                    <a
-                                        href="#"
-                                        className={`link-underline font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
-                                            activeLink === "login"
-                                                ? "active"
-                                                : ""
-                                        }`}
-                                        onClick={() =>
-                                            handleSetActiveLink("login")
-                                        }
+                                    </p>
+                                    <p
+                                        className={`link-underline cursor-pointer font-roboto uppercase text-end my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1`}
+                                        onClick={() => navigate("/login")}
                                     >
                                         Login here
-                                    </a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +245,8 @@ const Navbar = () => {
                             alt="LevelUpBeaute"
                             width={80}
                             height={80}
-                            className="lg:w-20 md:w-16 lg:h-20 md:h-16 h-14 w-14"
+                            className="lg:w-20 md:w-16 lg:h-20 md:h-16 h-14 w-14 cursor-pointer"
+                            onClick={() => navigate("/")}
                         />
                     </div>
                 </div>

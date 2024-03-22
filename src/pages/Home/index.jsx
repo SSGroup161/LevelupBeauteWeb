@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ParallaxText from "../../components/ParallaxText";
 import { Carousel } from "flowbite-react";
 import "./Home.css";
 
@@ -13,6 +14,10 @@ const Home = () => {
         const scrollPosition = window.scrollY;
         setIsScrolled(scrollPosition > 0);
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -42,9 +47,9 @@ const Home = () => {
     };
 
     return (
-        <div className="max-w-screen-3xl m-auto overflow-visible bg-[#F5EDEA]">
+        <div className="max-w-screen-3xl m-auto overflow-visible bg-[#c8ba9f]">
             <Navbar />
-            <section className="home-container h-96 md:h-[40rem] lg:h-screen flex flex-col relative bg-slate-200">
+            <section className="home-container h-96 md:h-[40rem] lg:h-screen flex flex-col relative">
                 <img
                     src="/MainContent.png"
                     alt="MainContent"
@@ -66,7 +71,7 @@ const Home = () => {
                                 className="md:w-20 lg:w-24 hover:scale-125 transition-transform duration-300 ease-in-out"
                             />
                             <h1 className="text-description mt-2 font-roboto text-[0.5rem] md:text-xs font-medium text-[#916D4F]">
-                                HYDROLYZED RICE PROTEIN
+                                HYDROLYZED COLLAGEN
                             </h1>
                         </div>
                         <div className="flex floating-img-satu flex-col items-center justify-center me-8 md:me-20 mt-14">
@@ -76,8 +81,8 @@ const Home = () => {
                                 width={50}
                                 className="md:w-28 lg:w-32 hover:scale-125 transition-transform duration-300 ease-in-out"
                             />
-                            <h1 className="text-description mt-2 font-roboto text-[0.5rem] md:text-xs font-medium text-[#916D4F]">
-                                TITANIUM DIOXIDE
+                            <h1 className="text-description mt-2 font-roboto text-[0.5rem] md:text-xs uppercase font-medium text-[#916D4F]">
+                                Hyaluronic acid
                             </h1>
                         </div>
                     </div>
@@ -89,8 +94,8 @@ const Home = () => {
                                 width={50}
                                 className="md:w-24 lg:w-28 hover:scale-125 transition-transform duration-300 ease-in-out"
                             />
-                            <h1 className="text-description mt-2 font-roboto text-[0.5rem] md:text-xs font-medium text-[#916D4F]">
-                                GLABRIDIN
+                            <h1 className="text-description mt-2 font-roboto text-[0.5rem] uppercase md:text-xs font-medium text-[#916D4F]">
+                                Centella Asiatica
                             </h1>
                         </div>
                         <div className="flex floating-img-tiga flex-col items-center justify-center me-12 mb-4">
@@ -100,7 +105,7 @@ const Home = () => {
                                 width={50}
                                 className="md:w-20 lg:w-24 hover:scale-125 transition-transform duration-300 ease-in-out"
                             />
-                            <h1 className="text-description mt-2 font-roboto text-[0.5rem] md:text-xs font-medium text-[#916D4F]">
+                            <h1 className="text-description mt-2 font-roboto uppercase text-[0.5rem] md:text-xs font-medium text-[#916D4F]">
                                 AMARANT EXTRACT
                             </h1>
                         </div>
@@ -109,10 +114,10 @@ const Home = () => {
                 <div className="flex w-full justify-center md:justify-between absolute bottom-0 items-end lg:px-20 md:px-12 z-30">
                     <div className="lg:mb-16 md:mb-10 mb-4 md:w-60">
                         <h1 className="font-roboto text-[#916D4F] text-xs md:text-sm tracking-wider text-center md:text-start">
-                            Glow Code Lucent
+                            Level Up Hydro B5
                         </h1>
                         <h1 className="font-roboto text-[#916D4F] text-sm md:text-lg tracking-wider text-center md:text-start">
-                            Revitalizing Toner
+                            Moisturizing Cream
                         </h1>
                     </div>
                     <div
@@ -147,8 +152,8 @@ const Home = () => {
                         </svg>
                     </div>
                     <div className="opacity-0 w-60 hidden md:block">
-                        <h1>Glow Code Lucent</h1>
-                        <h1>Revitalizing Toner</h1>
+                        <h1>Level Up Hydro B5</h1>
+                        <h1>Moisturizing Cream</h1>
                     </div>
                 </div>
             </section>
@@ -536,25 +541,95 @@ const Home = () => {
                         <div className="flex h-full gap-6 flex-col items-center justify-center">
                             <div className="flex flex-col items-center justify-center">
                                 <img
-                                    src="/AssetReview1.png"
+                                    src="/AssetReview2.png"
                                     alt="AssetReview1"
                                     width={100}
-                                    className="mb-4"
+                                    className="mb-4 rounded-full"
                                 />
                                 <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
-                                    Shella Saukia
+                                    Lucinta Luna
                                 </h1>
                                 <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
-                                    Brand Ambassador Level Up Beaute
+                                    Public Figure
                                 </h2>
                                 <a
-                                    href="https://www.instagram.com/shellasaukiaofficial/"
+                                    href="https://www.instagram.com/lucintaluna_manjalita/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Instagram"
                                     className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
                                 >
-                                    @shellasaukiaofficial
+                                    @lucintaluna_manjalita
+                                </a>
+                            </div>
+                            <div className="w-48 md:w-96 lg:w-[40rem] text-center">
+                                <p className="font-roboto font-light text-[#916D4F] italic">
+                                    “ 🎵Level Up, Level Up katanya pakenya.
+                                    Level Up, si moist habis pake jelly skin.🎵{" "}
+                                    <br />
+                                    Aku sekarang udah fokus pake Level Up juga
+                                    ni guys. Sumpah moist banget glowing
+                                    parah😍“
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex h-full gap-6 flex-col items-center justify-center">
+                            <div className="flex flex-col items-center justify-center">
+                                <img
+                                    src="/AssetReview5.png"
+                                    alt="AssetReview1"
+                                    width={100}
+                                    className="mb-4 rounded-full"
+                                />
+                                <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
+                                    Elvira Miniti
+                                </h1>
+                                <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
+                                    Brand Ambassador Level Up Beaute
+                                </h2>
+                                <a
+                                    href="https://www.instagram.com/elviraaminitiii/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram"
+                                    className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
+                                >
+                                    @elviraaminitiii
+                                </a>
+                            </div>
+                            <div className="w-48 md:w-96 lg:w-[40rem] text-center">
+                                <p className="font-roboto font-light text-[#916D4F] italic">
+                                    “ Untuk produk skincare yang satu ini, Level
+                                    Up, aku suka banget karena lembut banget di
+                                    kulit. Dan guys, aku tuh selalu iritasi
+                                    kalau pakai make-up. Jadi moisturizer dari
+                                    Level Up ini ngebantu aku banget untuk
+                                    mempertahankan skin barier aku. “
+                                </p>
+                            </div>
+                        </div>
+                        <div className="flex h-full gap-6 flex-col items-center justify-center">
+                            <div className="flex flex-col items-center justify-center">
+                                <img
+                                    src="/AssetReview4.png"
+                                    alt="AssetReview1"
+                                    width={100}
+                                    className="mb-4 rounded-full"
+                                />
+                                <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
+                                    Gaby Rosse
+                                </h1>
+                                <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
+                                    Content Creator
+                                </h2>
+                                <a
+                                    href="https://www.instagram.com/gaby.rosse/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="Instagram"
+                                    className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
+                                >
+                                    @gaby.rosse
                                 </a>
                             </div>
                             <div className="w-48 md:w-96 lg:w-[40rem] text-center">
@@ -574,25 +649,25 @@ const Home = () => {
                         <div className="flex h-full gap-6 flex-col items-center justify-center">
                             <div className="flex flex-col items-center justify-center">
                                 <img
-                                    src="/AssetReview1.png"
+                                    src="/AssetReview6.png"
                                     alt="AssetReview1"
                                     width={100}
-                                    className="mb-4"
+                                    className="mb-4 rounded-full"
                                 />
                                 <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
-                                    Shella Saukia
+                                    Fachrul Hadid
                                 </h1>
                                 <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
-                                    Brand Ambassador Level Up Beaute
+                                    Content Creator
                                 </h2>
                                 <a
-                                    href="https://www.instagram.com/shellasaukiaofficial/"
+                                    href="https://www.instagram.com/fachrulhadid/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Instagram"
                                     className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
                                 >
-                                    @shellasaukiaofficial
+                                    @fachrulhadid
                                 </a>
                             </div>
                             <div className="w-48 md:w-96 lg:w-[40rem] text-center">
@@ -612,63 +687,25 @@ const Home = () => {
                         <div className="flex h-full gap-6 flex-col items-center justify-center">
                             <div className="flex flex-col items-center justify-center">
                                 <img
-                                    src="/AssetReview1.png"
+                                    src="/AssetReview7.png"
                                     alt="AssetReview1"
                                     width={100}
-                                    className="mb-4"
+                                    className="mb-4 rounded-full"
                                 />
                                 <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
-                                    Shella Saukia
+                                    Clarissa Putri H
                                 </h1>
                                 <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
-                                    Brand Ambassador Level Up Beaute
+                                    Content Creator
                                 </h2>
                                 <a
-                                    href="https://www.instagram.com/shellasaukiaofficial/"
+                                    href="https://www.instagram.com/clarissaputri_/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Instagram"
                                     className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
                                 >
-                                    @shellasaukiaofficial
-                                </a>
-                            </div>
-                            <div className="w-48 md:w-96 lg:w-[40rem] text-center">
-                                <p className="font-roboto font-light text-[#916D4F] italic">
-                                    “ Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Laborum, necessitatibus
-                                    nemo. Expedita alias natus impedit tempora
-                                    quaerat, exercitationem pariatur ipsam qui
-                                    quidem ad odio est. Sit accusantium nostrum
-                                    ab rem. Expedita alias natus impedit tempora
-                                    quaerat, exercitationem pariatur ipsam qui
-                                    quidem ad odio est. Sit accusantium nostrum
-                                    ab rem. “
-                                </p>
-                            </div>
-                        </div>
-                        <div className="flex h-full gap-6 flex-col items-center justify-center">
-                            <div className="flex flex-col items-center justify-center">
-                                <img
-                                    src="/AssetReview1.png"
-                                    alt="AssetReview1"
-                                    width={100}
-                                    className="mb-4"
-                                />
-                                <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
-                                    Shella Saukia
-                                </h1>
-                                <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
-                                    Brand Ambassador Level Up Beaute
-                                </h2>
-                                <a
-                                    href="https://www.instagram.com/shellasaukiaofficial/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    aria-label="Instagram"
-                                    className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide"
-                                >
-                                    @shellasaukiaofficial
+                                    @clarissaputri_
                                 </a>
                             </div>
                             <div className="w-48 md:w-96 lg:w-[40rem] text-center">
@@ -688,6 +725,7 @@ const Home = () => {
                     </Carousel>
                 </div>
             </section>
+            <ParallaxText bgColor="F5EDEA" />
             <Footer />
         </div>
     );
