@@ -9,9 +9,9 @@ const About = () => {
     const [isFilledEmail, setIsFilledEmail] = useState(false);
     const [isFilledMessage, setIsFilledMessage] = useState(false);
 
-    // useEffect(() => {
-    //     window.scrollTo(0, 0);
-    // }, []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleInputChangeName = (event) => {
         setIsFilledName(event.target.value !== "");

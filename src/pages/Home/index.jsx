@@ -582,7 +582,7 @@ const Home = () => {
                                     className="mb-4 rounded-full"
                                 />
                                 <h1 className="font-roboto font-medium text-[#916D4F] text-lg tracking-wide">
-                                    Elvira Miniti
+                                    Elvira Aminiti
                                 </h1>
                                 <h2 className="font-roboto font-light text-[#C8BA9F] text-sm tracking-wide">
                                     Brand Ambassador Level Up Beaute

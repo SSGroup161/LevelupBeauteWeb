@@ -59,17 +59,17 @@ const Navbar = () => {
         } else if (location.pathname === "/best-deals") {
             setActiveHome(false);
             setActiveAbout(false);
-            setActiveProduct(true);
+            setActiveProduct(false);
             setActiveNews(false);
-            setActiveBestDeals(false);
+            setActiveBestDeals(true);
             setActivePromo(false);
-        } else if (location.pathname === "/promo") {
+        } else if (location.pathname === "/get-promo") {
             setActiveHome(false);
             setActiveAbout(false);
             setActiveProduct(false);
             setActiveNews(false);
             setActiveBestDeals(false);
-            setActivePromo(false);
+            setActivePromo(true);
         }
     }, []);
 
@@ -84,7 +84,9 @@ const Navbar = () => {
     return (
         <>
             <div className="w-full h-28 fixed top-0 z-50" ref={navbarRef}>
-                <div className="w-full h-full relative flex justify-center items-center md:mt-4 md:px-6">
+                {/* <div className="md:hidden w-full h-16 bg-slate-200"></div> */}
+
+                <div className="w-full h-full relative hidden md:flex justify-center items-center md:mt-4 md:px-6">
                     <div
                         className={`navbar-container md:w-[60rem] w-64 bg-[#F6F1ED] shadow-md ${
                             dropdownOpen ? "rounded-t-full" : "rounded-full"
@@ -97,7 +99,7 @@ const Navbar = () => {
                                 className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
                                     activeBestDeals ? "active" : ""
                                 }`}
-                                onClick={() => navigate("/beast-deals")}
+                                onClick={() => navigate("/best-deals")}
                             >
                                 Best Deals
                             </p>
@@ -105,7 +107,7 @@ const Navbar = () => {
                                 className={`link-underline cursor-pointer font-roboto uppercase md:text-[11px] text-xs font-medium text-[#916D4F] pb-1 ${
                                     activePromo ? "active" : ""
                                 }`}
-                                onClick={() => navigate("/promo")}
+                                onClick={() => navigate("/get-promo")}
                             >
                                 Get Promo
                             </p>
@@ -167,7 +169,7 @@ const Navbar = () => {
                                         className={`link-underline cursor-pointer font-roboto uppercase my-2 w-28 md:text-[11px] text-xs text-[#916D4F] pb-1 ${
                                             activePromo ? "active" : ""
                                         }`}
-                                        onClick={() => navigate("/promo")}
+                                        onClick={() => navigate("/get-promo")}
                                     >
                                         Get Promo
                                     </p>
